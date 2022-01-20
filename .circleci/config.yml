@@ -5,7 +5,7 @@ version: 2.1
 executors:
   py_image:
     docker:
-      - image: cimg/python:stable
+      - image: cimg/python:3.8
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -24,6 +24,9 @@ jobs:
       - run:
           name: "Step 2 (ey-yo)"
           command: "echo Yo!!!!!"
+      - run:
+          name: "Step 3 (ey-yo)"
+          command: "python -v"
   was-sup:
     executor: py_image
     steps:
@@ -34,6 +37,9 @@ jobs:
       - run:
           name: "Step 2 (wassup)"
           command: "echo Sup!!!!!"
+      - run:
+          name: "Step 3 (wassup)"
+          command: "python -v"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
