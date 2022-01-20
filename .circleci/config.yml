@@ -2,25 +2,43 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+executors:
+  py_image:
+    docker:
+      - image: cimg/python:stable
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
+  ey-yo:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
+    executor: py_image
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: "Step 1 (ey-yo)"
+          command: "echo Ey!!!!!"
+      - run:
+          name: "Step 2 (ey-yo)"
+          command: "echo Yo!!!!!"
+  was-sup:
+    executor: py_image
+    steps:
+      - checkout
+      - run:
+          name: "Step 1 (wassup)"
+          command: "echo What!!!!!"
+      - run:
+          name: "Step 2 (wassup)"
+          command: "echo Sup!!!!!"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  ey-yo-wassup-workflow:
     jobs:
-      - say-hello
+      - ey-yo
+      - was-sup
