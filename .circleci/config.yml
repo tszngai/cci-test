@@ -26,7 +26,7 @@ jobs:
           command: "echo Yo!!!!!"
       - run:
           name: "Step 3 (ey-yo)"
-          command: "python -v"
+          command: "python --version"
   was-sup:
     executor: py_image
     steps:
@@ -39,7 +39,7 @@ jobs:
           command: "echo Sup!!!!!"
       - run:
           name: "Step 3 (wassup)"
-          command: "python -v"
+          command: "python --version"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
